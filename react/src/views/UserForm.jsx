@@ -1,4 +1,4 @@
-import { useFetcher, useNavigate, useParams } from "react-router-dom"
+import { Link, useFetcher, useNavigate, useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axiosClient from "../axios.client"
 import { useStateContext } from "../context/ContextProvider"
@@ -64,8 +64,14 @@ export default function UserForm() {
 
     return (
         <>
-            {user.id && <h1>Update User: {user.name} </h1>}
-            {!user.id && <h1>New User</h1>}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                {user.id && <h1>Update User: {user.name} </h1>}
+                {!user.id && <h1>New User</h1>}
+                <Link to="/users/new" className="btn-add"> Add new </Link>
+            </div>
+           
+
+
             <div className="card animated fadeInDown">
                 {loading && (
                     <div className="text-center">Loading ...</div>

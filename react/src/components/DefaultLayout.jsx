@@ -3,6 +3,8 @@ import { useStateContext } from "../context/ContextProvider";
 import { useEffect } from "react"
 import axiosClient from "../axios.client";
 
+import Sidebar from './Sidebar';
+
 export function DefaultLayout() {
     const { user, token, notification, setUser, setToken } = useStateContext()
     if (!token) {
@@ -29,14 +31,18 @@ export function DefaultLayout() {
 
     return (
         <div id="defaultLayout">
-            <aside>
+            <div className="main">
+                <Sidebar />
+            </div>
+
+            {/* <aside>
                 <Link to="/dashboard">Dashboard</Link>
                 <Link to="/users">Users</Link>
-            </aside>
+            </aside> */}
             <div className="content">
                 <header>
                     <div>
-                        Header
+                        Online Shopping
                     </div>
                     <div>
                         {user.name}
